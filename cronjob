@@ -1,0 +1,1 @@
+*/30 * * * *  /home/transfer/scripts/cpweather.sh >> /var/log/sftp-upload.log 2>&1

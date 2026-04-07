@@ -1,0 +1,7 @@
+cd www/d3
+put /home/transfer/DataLog/weather.csv
+put /home/transfer/DataLog/lgr*.csv
+put /home/transfer/DataLog/thermo*.csv
+put /home/transfer/DataLog/wind30m.csv
+exit
+
