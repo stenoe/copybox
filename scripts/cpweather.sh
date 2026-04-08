@@ -1,17 +1,25 @@
-#!/usr/bin/env bash
+##!/usr/bin/env bash
 set -euo pipefail
 
-#
-# Script to copy weather data for the website.
-#
+sftp -i "/root/.ssh/id_rsa" -b /home/transfer/copyWeatherToWebServer smear@smear.emu.ee
 
-echo "copy files\n"
+REMOTE_USER="smear"
+REMOTE_HOST="smear.emu.ee"
 
-# secure file transfer of the file to the webserver
-# copyWeatherToWebServer is a batch script with sftp commands for the transfer 
-#
-sftp -b /home/transfer/copyWeatherToWebServer smear@smear.emu.ee
+LOCAL_DIR="/home/transfer/DataLog"
+KEY_FILE="/root/.ssh/id_rsa"
+KNOWN_HOSTS="/root/.ssh/known_hosts"
 
-echo "done"
+# sftp \
+#   -i "${KEY_FILE}" \
+#   -o IdentitiesOnly=yes \
+#   -o UserKnownHostsFile="${KNOWN_HOSTS}" \
+#   -o StrictHostKeyChecking=yes \
+#   -b /home/transfer/copyWeatherToWebServer \
+#   "${REMOTE_USER}@${REMOTE_HOST}"
 
-
+#   <<EOF
+# cd ${REMOTE_DIR}
+# put ${LOCAL_DIR}/*
+# bye
+# EOF
